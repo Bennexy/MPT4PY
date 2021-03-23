@@ -15,7 +15,7 @@ try:
     while True:
         data = conn.recv(1024)
 
-        conn.sendall(bytes(HOST), bytes(cpu_count()))
+        conn.sendall(bytes(HOST, 'utf-8'), bytes(cpu_count(), 'utf-8'))
         s.close()
         break
 except KeyboardInterrupt:
