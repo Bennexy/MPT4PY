@@ -8,9 +8,12 @@ s.bind((HOST, PORT))
 s.listen()
 conn, addr = s.accept()
 print('Connected by', addr)
-while True:
-    data = conn.recv(1024)
-    if not data:
-        break
-    conn.sendall(data)
-    s.close()
+try:
+    while True:
+        data = conn.recv(1024)
+        if not data:
+            break
+        conn.sendall(data)
+except KeyboardInterrupt:
+    print("shutting down")
+    s.clone()
