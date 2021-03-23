@@ -14,8 +14,8 @@ try:
     print('Connected by', addr)
     while True:
         data = conn.recv(1024)
-
-        conn.sendall(str.encode('test') +str.encode(" ") + str.encode(str(cpu_count())))
+        payload = {"host" : HOST, "cpu-count": cpu_count()}
+        conn.sendall(str.encode(str(payload)))
         s.close()
         print("sent data")
         break

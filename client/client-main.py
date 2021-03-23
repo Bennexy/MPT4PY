@@ -1,5 +1,7 @@
-import socket
+import socket, sys
+sys.path.append(".")
 from time import sleep
+from src.module import Logger
 
 HOST = "192.168.0.164"
 PORT = 5555
@@ -12,6 +14,7 @@ try:
     sleep(1)
     s.sendall(b'Hello, world')
     data = s.recv(1024)
+    Logger(data.decode()).server_response(HOST)
     print('Received', repr(data.decode()))
     s.close()
 except KeyboardInterrupt:
