@@ -1,11 +1,18 @@
 import socket
+from time import sleep
 
 HOST = "192.168.0.164"
 PORT = 5555
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((HOST, PORT))
-s.sendall(b'Hello, world')
-data = s.recv(1024)
-print('Received', repr(data))
-s.close()
+try:
+    print("starting up")
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((HOST, PORT))
+    while True:
+        print("sending data")
+        sleep(1)
+        s.sendall(b'Hello, world')
+        data = s.recv(1024)
+        print('Received', repr(data))
+except KeyboardInterrupt:
+    s.close()

@@ -1,4 +1,5 @@
 import socket
+from multiprocessing import cpu_count
 
 HOST = "192.168.0.164"
 PORT = 5555
@@ -14,7 +15,9 @@ try:
     while True:
         data = conn.recv(1024)
 
-        conn.sendall(data)
+        conn.sendall(HOST, cpu_count())
+        s.close()
+        break
 except KeyboardInterrupt:
     print("shutting down")
-    s.clone()
+    s.close()
