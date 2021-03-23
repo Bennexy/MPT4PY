@@ -8,11 +8,11 @@ try:
     print("starting up")
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((HOST, PORT))
-    while True:
-        print("sending data")
-        sleep(1)
-        s.sendall(b'Hello, world')
-        data = s.recv(1024)
-        print('Received', repr(data))
+    print("sending data")
+    sleep(1)
+    s.sendall(b'Hello, world')
+    data = s.recv(1024)
+    print('Received', repr(data.decode()))
+    s.close()
 except KeyboardInterrupt:
     s.close()

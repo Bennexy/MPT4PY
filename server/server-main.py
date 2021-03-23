@@ -15,8 +15,9 @@ try:
     while True:
         data = conn.recv(1024)
 
-        conn.sendall(str.encode('test') + str.encode(str(cpu_count())))
+        conn.sendall(str.encode('test') +str.encode(" ") + str.encode(str(cpu_count())))
         s.close()
+        print("sent data")
         break
 except KeyboardInterrupt:
     print("shutting down")
