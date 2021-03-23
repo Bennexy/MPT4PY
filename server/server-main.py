@@ -15,7 +15,7 @@ try:
     while True:
         data = conn.recv(1024)
 
-        conn.sendall(b'% %' % (HOST, cpu_count()))
+        conn.sendall(b'' + HOST, cpu_count())
         s.close()
         break
 except KeyboardInterrupt:
