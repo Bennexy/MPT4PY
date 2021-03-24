@@ -29,3 +29,6 @@ def main():
     except KeyboardInterrupt:
         print("shutting down")
         s.close()
+
+
+main()
