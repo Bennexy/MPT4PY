@@ -7,4 +7,13 @@ ips = [line.rstrip() for line in open('hosts')]
 for host in ips:
     print(host)
 
-print(str.encode('test', 'utf-8'), str.encode(str(cpu_count())))
+test = str.encode(host, 'utf-8')
+
+print(test.__sizeof__(), str.encode(str(cpu_count()), 'utf-8'))
+
+
+
+string = "doies test"
+
+print(list(string))
+
