@@ -13,8 +13,9 @@ def main():
         conn, addr = s.accept()
         print('Connected by', addr)
         try:
-            data = conn.recv(1024)
-            print(data.decode())
+            while True:
+                data = conn.recv(1024)
+                print(data.decode())
             #payload = {"host" : HOST, "cpu-count": cpu_count()}
             #conn.sendall(str.encode(str(payload)))
             #print("sent data")
