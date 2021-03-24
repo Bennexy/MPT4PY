@@ -13,6 +13,7 @@ def main():
         conn, addr = s.accept()
         print('Connected by', addr)
         try:
+            print("try loop")
             while True:
                 data = conn.recv(1024)
                 print(data.decode())
@@ -20,6 +21,7 @@ def main():
             #conn.sendall(str.encode(str(payload)))
             #print("sent data")
         except KeyboardInterrupt:
+            print("exit")
             sys.exit()
         except Exception as e:
             print(e)
