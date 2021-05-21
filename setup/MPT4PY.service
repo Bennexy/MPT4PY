@@ -1,0 +1,24 @@
+[Unit]
+Description=Celery Service
+After=network.target
+
+
+
+[Service]
+Type=forking
+User=MPT4PY
+Group=MPT4PY
+WorkingDirectory=/opt/MPT4PY/venv/bin/python
+
+ExecStart=/bin/sh 
+
+ExecStop=/bin/sh 
+
+ExecReload=/bin/sh 
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+

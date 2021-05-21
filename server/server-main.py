@@ -1,8 +1,13 @@
-import socket, time, sys
+import socket, time, sys, os
 from multiprocessing import cpu_count
 
-HOST = "192.168.0.164"
-PORT = 5555
+HOST = "192.168.1.101"
+PORT = 55555
+
+hosts = ["192.168.1.101"]
+
+for host in hosts:
+    os.system(f"ssh root@{host} 'cd /opt/MPT4PY && venv/bin/python client/client-main.py'")
 
 print("starting up")
 def main():

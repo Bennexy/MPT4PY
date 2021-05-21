@@ -3,10 +3,10 @@ sys.path.append(".")
 from time import sleep
 from src.module import Logger
 
-HOST = "192.168.0.164"
-PORT = 5555
+HOST = "192.168.1.164"
+PORT = 55555
 
-
+"""
 class ClientSocket:
     socket.setdefaulttimeout(10)
 
@@ -42,6 +42,14 @@ class ClientSocket:
         return payload_out
 
 
+
+string = ""
+
+for i in range(0, 1200):
+    string += "t"
+
+str.encode(string)
+
 try:
     print("starting up")
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -49,7 +57,7 @@ try:
     while True:
         print("sending data")
         
-        s.sendall(b'Hello, world')
+        s.sendall(str.encode(string))
         sleep(1)
     #data = s.recv(1024)
     #data = data.decode()
@@ -59,3 +67,4 @@ try:
     #s.close()
 except KeyboardInterrupt:
     s.close()
+"""
